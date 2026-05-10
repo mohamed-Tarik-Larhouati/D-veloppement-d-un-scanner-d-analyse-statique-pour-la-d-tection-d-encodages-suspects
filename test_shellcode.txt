@@ -1,0 +1,30 @@
+# ==========================================
+# TEST D'ANALYSE : TABLEAUX DECIMAUX
+# Objectif : tester la détection de tableaux
+#            d'octets encodés en décimal
+# ==========================================
+# Ce fichier contient des séquences numériques
+# typiques d'octets bruts encodés (0-255).
+# Aucun mot-clé dangereux n'est présent.
+
+[*] Pattern 1 : NOP sled + charge utile x86
+buf = 144, 144, 144, 144, 144, 144, 144, 144, 49, 192, 80, 104, 47, 47, 115, 104, 104, 47, 98, 105, 110, 137, 227, 80, 83, 137, 225, 176, 11, 205, 128
+
+[*] Pattern 2 : Fragment Windows (calc.exe)
+payload = 252, 232, 130, 0, 0, 0, 96, 137, 229, 49, 192, 100, 139, 80, 48, 139, 82, 12, 139, 82, 20, 139, 114, 40, 15, 183, 74, 38
+
+[*] Pattern 3 : Fragment stager réseau
+stager = 233, 239, 190, 173, 222, 49, 219, 64, 49, 201, 49, 192, 180, 70, 205, 128, 106, 0, 83, 137, 225, 84, 89, 185, 10, 0, 0, 0, 210, 104
+
+[*] Séquences hexadécimales (en-tête MZ)
+\x4d\x5a\x90\x00\x03\x00\x00\x00\x04\x00\x00\x00\xff\xff\x00\x00
+
+[*] En-tête ELF (hex)
+\x7f\x45\x4c\x46\x02\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00
+
+[*] Hex brut
+4d5a900003000000040000000000000000000000ffff000000000000
+
+Ce type de contenu est typique des fichiers qui
+reconstituent des données en mémoire à partir d'un
+tableau d'entiers pour éviter la détection statique.

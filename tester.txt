@@ -1,0 +1,41 @@
+# ==========================================
+# TEST D'ANALYSE STATIQUE - MALWARE SCANNER
+# ==========================================
+
+import os
+import base64
+
+def system_update():
+    # Code légitime : une simple impression
+    print("Vérification des mises à jour système...")
+
+# ------------------------------------------
+# DETECTION 1 : Mot-clé suspect direct
+# ------------------------------------------
+# Un attaquant pourrait utiliser os.system pour exécuter un shell
+def execute_payload():
+    os.system("whoami") 
+
+# ------------------------------------------
+# DETECTION 2 : Base64 (Masquage de commande)
+# ------------------------------------------
+# La chaîne ci-dessous décode : "rm -rf /var/log/syslog"
+# Ton code doit : la trouver, calculer son entropie, et la décoder.
+hidden_command = "cm0gLXJmIC92YXIvbG9nL3N5c2xvZw=="
+
+# ------------------------------------------
+# DETECTION 3 : Hexadécimal (Haute Entropie)
+# ------------------------------------------
+# "python3 -c 'import socket...'" encodé en hex
+# C'est typique d'un Reverse Shell
+reverse_shell_hex = "\x70\x79\x74\x68\x6f\x6e\x33\x20\x2d\x63\x20\x27\x69\x6d\x70\x6f\x72\x74\x20\x73\x6f\x63\x6b\x65\x74"
+
+# ------------------------------------------
+# DETECTION 4 : Obfuscation imbriquée (Heuristique)
+# ------------------------------------------
+# Ici on utilise eval() sur du base64 qui contient "import subprocess"
+obfuscated_code = "ZXZhbChiYXNlNjQuYjY0ZGVjb2RlKCdpbXBvcnQgc3VicHJvY2VzcycpKQ=="
+
+if __name__ == "__main__":
+    system_update()
+    # Dans un vrai scan, ces fonctions seraient identifiées comme critiques

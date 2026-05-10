@@ -1,0 +1,45 @@
+# ==========================================
+# TEST D'ANALYSE : HAUTE ENTROPIE
+# Objectif : tester la détection de chaînes
+#            à haute entropie (payloads chiffrés)
+# ==========================================
+# Ce fichier simule un fichier de configuration
+# contenant des données chiffrées (AES-CBC, RC4…)
+# encodées en Base64. Aucun mot-clé dangereux,
+# mais l'entropie élevée doit être signalée.
+
+[config]
+version = 1.4.2
+mode = stealth
+
+# Clé de session chiffrée (AES-256-CBC, base64)
+session_key = U2FsdGVkX19vK7mQXjZ8q3Nh4GpRwDcYeT1LAiMfBuVO6XsE=
+
+# Payload principal encodé (RC4 + base64)
+primary_payload = Rz3kXvP9qL8mN2wT7hJdYcF4sAoGbE1iU6nK0WxQ5jlZyCuB+eIrMtHpfD==
+
+# Certificat client (DER encodé, extrait)
+client_cert = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2a3b4c5d6e7f8g9h0i==
+
+# Clé de chiffrement secondaire (XOR key dérivée)
+xor_derived = 7xmvSzBj3FoU5mhKzYKh6A8PqNtWrJdCeVbLiGuXyAoEZMk=
+
+# Token d'authentification JWT (partie payload)
+jwt_payload = eyJzdWIiOiJ1c2VyXzEyMzQ1IiwiaWF0IjoxNjgwMDAwMDAwLCJleHAiOjE2ODAzNjAwMDB9
+
+# Vecteur d'initialisation AES
+aes_iv = Qn8JkP3mXr6tZwYvL9cFoB2s==
+
+# Bloc de données chiffrées multi-couches (AES puis XOR)
+encrypted_blob_1 = 4K9vRzTnMpXqL2wYcFjAiUoGbE7sN1dH6eJ0WxB3Q5lZyCuP+8IrKtHmgD/fVO=
+encrypted_blob_2 = hN3rLqP8mX2wZvTcY9kFoJ7sA4bE1iG6dH0WxU5nQ3lZyCuR+6IrMtBpfD/eVO==
+
+# Clé RSA publique (fragment)
+rsa_pub_fragment = MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAMHvFq5z2eXrPo9mKdL1nB3cR4sT6wYuJiHgA=
+
+# Hash PBKDF2 (mot de passe → clé)
+pbkdf2_hash = kP5mT8nR3vX6qY2wZcFoJ9sA7bE4iG1dH0WxU==
+
+# Ces chaînes ont une entropie de Shannon > 4.5 bits/char.
+# Elles ne contiennent aucun mot-clé dangereux connu,
+# mais leur entropie anormale suggère un payload chiffré.

@@ -1,0 +1,25 @@
+{
+    "file": ".\\test_moyen.txt",
+    "risk_score": 100,
+    "risk_level": "CRITIQUE",
+    "detections": [
+        {
+            "type": "base64",
+            "line": 19,
+            "position": "24-36",
+            "encoded": "configuratio",
+            "decoded": "rߊ\u000bjب",
+            "entropy": 3.2516291673878226,
+            "entropy_level": "MEDIUM"
+        },
+        {
+            "type": "base64",
+            "line": 21,
+            "position": "17-37",
+            "encoded": "ZGFya19tb2RlPXRydWU=",
+            "decoded": "dark_mode=true",
+            "entropy": 4.1219280948873624,
+            "entropy_level": "HIGH"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+
+# ==========================================
+# TEST D'ANALYSE : RISQUE MODÉRÉ / FAIBLE
+# ==========================================
+
+import base64
+import requests
+
+def check_connection():
+    # Utilisation d'une bibliothèque réseau légitime
+    # Score faible (10 pts)
+    try:
+        response = requests.get("https://api.github.com")
+        print("Connexion réussie")
+    except:
+        pass
+
+def load_config():
+    # Encodage Base64 d'une configuration simple (ex: "dark_mode=true")
+    # Ce n'est pas une commande système, donc l'entropie sera basse
+    user_pref_b64 = "ZGFya19tb2RlPXRydWU=" 
+    return base64.b64decode(user_pref_b64)
+
+if __name__ == "__main__":
+    check_connection()
+    print(load_config())
